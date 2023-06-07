@@ -1,21 +1,21 @@
-<section>
+<section class="page-container">
     <slot />
 </section>
 
-<style>
-    section {
+<style is:global>
+    section.page-container {
         padding: 0 1rem;
     }
 
     @media (min-width: 768px) {
-        section {
+        section.page-container {
             max-width: 768px;
             margin: 0 auto;
         }
     }
 
     @media (min-width: 1280px) {
-        section {
+        section.page-container {
             max-width: 1024px;
         }
     }

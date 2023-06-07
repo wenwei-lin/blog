@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/default.astro";
+---
+
+<Layout>
+    <section>
+        <h2>404</h2>
+        <div class="gray-verticle-line"></div>
+        <article>
+            <h3>对不起，无法找到此页面</h3>
+            <p>不用担心，你可以在主页中寻找到其他内容。</p>
+            <a href="/">返回首页</a>
+        </article>
+    </section>
+</Layout>
+
+<style>
+    h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 4rem;
+        font-weight: bolder;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        margin: 0 0 1rem 0;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+
+    a {
+        margin-top: 1.2rem;
+        border: 1px solid green;
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: var(--blue-600);
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    a:hover {
+        background-color: var(--blue-700);
+    }
+
+    @media (min-width: 768px) {
+        section {
+            margin-top: 4rem;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gray-verticle-line {
+            width: 1px;
+            height: 4rem;
+            background-color: var(--gray-500);
+            margin: 0 2rem;
+        }
+
+        h2 {
+            font-size: 6rem;
+        }
+    }
+</style>

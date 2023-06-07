@@ -3,5 +3,27 @@ import Layout from "../layouts/default.astro";
 ---
 
 <Layout title="Wenwei">
-	<h1>Hello, world!</h1>
+	<section class="headline">
+		<h2>最近更新</h2>
+		<p>记录技术与生活</p>
+	</section>
+
+	<div class="gray-line"></div>
 </Layout>
+
+<style>
+	.headline h2 {
+		margin: 0;
+		padding: 0;
+		font-size: 2rem;
+	}
+
+	.headline p {
+		margin-top: 0.5rem;
+		padding: 0;
+		font-size: 1.1rem;
+		color: var(--gray-500);
+	}
+
+
+</style>
