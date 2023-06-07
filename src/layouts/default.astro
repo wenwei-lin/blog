@@ -1,0 +1,32 @@
+---
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+import PageContainer from "../components/page-container.astro";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            src="https://kit.fontawesome.com/eb6c2c2232.js"
+            crossorigin="anonymous"></script>
+        <title>{title}</title>
+    </head>
+    <body>
+        <PageContainer>
+            <Header />
+            <slot />
+            <Footer />
+        </PageContainer>
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        --black: #404040;
+        --teal: #14b8a6;
+    }
+</style>

@@ -1,0 +1,22 @@
+<section>
+    <slot />
+</section>
+
+<style>
+    section {
+        padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+        section {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        section {
+            max-width: 1024px;
+        }
+    }
+</style>
