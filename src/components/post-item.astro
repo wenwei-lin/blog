@@ -1,0 +1,44 @@
+---
+import formatDate from "../utils/formatDate";
+
+const { title, description, date, tags, slug } = Astro.props;
+---
+
+<article class="post-item">
+    <dl>
+        <dt class="sr-only">Published on</dt>
+        <dd>
+            <time datetime={date}>{formatDate(date)}</time>
+        </dd>
+    </dl>
+    <h3><a href={`/blog/${slug}`}>{title}</a></h3>
+    <ul>
+        {
+            tags.map((tag: string) => {
+                return (
+                    <li>
+                        <a href={`/tags/${tag}`}>{tag}</a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+    <p>
+        {description}
+    </p>
+</article>
+
+<style>
+    h3,
+    dl,
+    dt,
+    dd,
+    ul,
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    
+
+</style>

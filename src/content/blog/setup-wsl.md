@@ -3,7 +3,7 @@ title: 设置WSL开发环境
 slug: setup-wsl
 date: 2023-06-06
 description: 本文介绍如何在Windows 10上安装WSL并配置开发环境。
-tag:
+tags:
     - WSL
     - Windows
     - Linux
