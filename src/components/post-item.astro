@@ -4,41 +4,29 @@ import formatDate from "../utils/formatDate";
 const { title, description, date, tags, slug } = Astro.props;
 ---
 
-<article class="post-item">
+<section class="post-item">
     <dl>
         <dt class="sr-only">Published on</dt>
-        <dd>
+        <dd class="text-gray-700 font-medium tracking-wider">
             <time datetime={date}>{formatDate(date)}</time>
         </dd>
     </dl>
-    <h3><a href={`/blog/${slug}`}>{title}</a></h3>
-    <ul>
-        {
-            tags.map((tag: string) => {
-                return (
+    <article class="mt-4">
+        <h3 class="font-bold text-2xl"><a href={`/blog/${slug}`}>{title}</a></h3>
+        <ul class="flex flex-row flex-wrap gap-4">
+            {
+                tags.map((tag: string) => (
                     <li>
-                        <a href={`/tags/${tag}`}>{tag}</a>
+                        <a href={`/tags/${tag}`} class="text-teal-500 font-medium hover:text-teal-600">{tag}</a>
                     </li>
-                );
-            })
-        }
-    </ul>
-    <p>
-        {description}
-    </p>
-</article>
-
-<style>
-    h3,
-    dl,
-    dt,
-    dd,
-    ul,
-    p {
-        padding: 0;
-        margin: 0;
-    }
-
-    
-
-</style>
+                ))
+            }
+        </ul>
+        <p class="mt-6 text-gray-500">
+            {description}
+        </p>
+        <a href={`/blog/${slug}`} class="block mt-6 text-teal-500 font-medium hover:text-teal-600"> 
+            阅读全文 &rarr;
+        </a>
+    </article>
+</section>
