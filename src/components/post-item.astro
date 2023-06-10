@@ -1,32 +1,46 @@
 ---
 import formatDate from "../utils/formatDate";
 
-const { title, description, date, tags, slug } = Astro.props;
+const { post, displayReadingMore } = Astro.props;
 ---
 
-<section class="post-item">
+<section class="xl:flex xl:flex-row xl:flex-wrap xl:gap-32">
     <dl>
         <dt class="sr-only">Published on</dt>
-        <dd class="text-gray-700 font-medium tracking-wider">
-            <time datetime={date}>{formatDate(date)}</time>
+        <dd class="text-gray-500 font-medium tracking-wider text-lg">
+            <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
         </dd>
     </dl>
-    <article class="mt-4">
-        <h3 class="font-bold text-2xl"><a href={`/blog/${slug}`}>{title}</a></h3>
+    <article class="mt-2 xl:mt-0">
+        <h3 class="font-bold text-2xl">
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </h3>
         <ul class="flex flex-row flex-wrap gap-4">
             {
-                tags.map((tag: string) => (
+                post.data.tags.map((tag: string) => (
                     <li>
-                        <a href={`/tags/${tag}`} class="text-teal-500 font-medium hover:text-teal-600">{tag}</a>
+                        <a
+                            href={`/tags/${tag}`}
+                            class="text-teal-500 font-medium hover:text-teal-600"
+                        >
+                            {tag}
+                        </a>
                     </li>
                 ))
             }
         </ul>
-        <p class="mt-6 text-gray-500">
-            {description}
+        <p class="mt-4 text-gray-500">
+            {post.data.description}
         </p>
-        <a href={`/blog/${slug}`} class="block mt-6 text-teal-500 font-medium hover:text-teal-600"> 
-            阅读全文 &rarr;
-        </a>
+        {
+            displayReadingMore && (
+                <a
+                    href={`/blog/${post.slug}`}
+                    class="block mt-6 text-teal-500 font-medium hover:text-teal-600"
+                >
+                    阅读全文 &rarr;
+                </a>
+            )
+        }
     </article>
 </section>

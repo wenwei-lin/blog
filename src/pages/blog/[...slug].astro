@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/post-layout.astro";
+import formatDate from "../../utils/formatDate";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+
+    return posts.map((post) => {
+        return {
+            params: {
+                slug: post.slug,
+            },
+            props: {
+                post,
+            },
+        };
+    });
+}
+
+// the `post` prop is passed from `getStaticPaths`
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout>
+    <article class="divide-y">
+        <section class="mb-8 flex flex-col flex-wrap items-center justify-center gap-2">
+            <time datetime={post.data.date} class="text-gray-500 font-medium">{formatDate(post.data.date)}</time>
+            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl">{post.data.title}</h1>
+        </section>
+        <section class="pt-8 prose prose-stone lg:prose-xl max-w-full">
+            <Content />
+        </section>
+    </article>
+</Layout>
