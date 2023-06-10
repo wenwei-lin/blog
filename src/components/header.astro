@@ -72,12 +72,12 @@ const navItems = [
     }
 
     .main-menu-toggle {
-        @apply inline-block text-3xl sm:hidden;
+        @apply inline-block text-3xl outline-none sm:hidden;
     }
 
     /** When the url ends with #main-menu  */
     .main-menu:target {
-        @apply block absolute top-10 z-40;
+        @apply block absolute top-10 z-40 outline-none;
         width: calc(100% - 3rem);
     }
 
