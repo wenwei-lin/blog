@@ -23,7 +23,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout>
+<Layout title={post.data.title}>
     <article class="divide-y">
         <section class="mb-8 flex flex-col flex-wrap items-center justify-center gap-2">
             <time datetime={post.data.date} class="text-gray-500 font-medium">{formatDate(post.data.date)}</time>

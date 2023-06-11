@@ -1,6 +1,8 @@
 ---
-import Layout from './default.astro'
+import Layout from "./default.astro";
+const { title } = Astro.props;
 ---
-<Layout>
+
+<Layout title={title}>
     <slot />
 </Layout>
