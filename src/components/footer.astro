@@ -1,28 +1,33 @@
 ---
+import GitHubIcon from '../icons/github.astro'
+import LinkedInIcon from '../icons/linkedin.astro'
+import EmailIcon from '../icons/envelope.astro'
+import YouTubeIcon from '../icons/youtube.astro'
+import BilibiliIcon from '../icons/bilibili.astro'
 const socialMedia = [
     {
         name: "Email",
-        icon: "fas fa-envelope",
+        icon: EmailIcon,
         link: "mailto:wenwei66.lin@gmail.com",
     },
     {
         name: "Github",
-        icon: "fab fa-github",
+        icon: GitHubIcon,
         link: "https://www.github.com/wenwei-lin",
     },
     {
         name: "LinkedIn",
-        icon: "fab fa-linkedin",
+        icon: LinkedInIcon,
         link: "https://www.linkedin.com/in/wenwei-lin",
     },
     {
         name: "YouTube",
-        icon: "fab fa-youtube",
+        icon: YouTubeIcon,
         link: "https://www.youtube.com/@wenwei-lin",
     },
     {
         name: "BiliBili",
-        icon: "fab fa-bilibili",
+        icon: BilibiliIcon,
         link: "https://space.bilibili.com/34104984",
     },
 ];
@@ -33,12 +38,14 @@ const socialMedia = [
         {
             socialMedia.map((item) => {
                 return (
-                    <li>
-                        <a href={`${item.link}`} target="_blank">
+                    <li class="w-6 block my-auto">
+                        <a href={`${item.link}`} target="_blank" class="">
                             <span class="sr-only">${item.name}</span>
                             <span
-                                class={`${item.icon} text-2xl text-gray-700 hover:text-blue-500`}
-                            />
+                                class={`fill-current text-gray-700 hover:text-blue-500`}
+                            >
+                                {<item.icon />}
+                            </span>
                         </a>
                     </li>
                 );

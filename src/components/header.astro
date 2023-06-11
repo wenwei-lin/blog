@@ -1,4 +1,7 @@
 ---
+import CodeIcon from '../icons/code.astro'
+import BarsIcon from '../icons/bars.astro'
+import XmarkIcon from '../icons/xmark.astro'
 const navItems = [
     {
         title: "文章",
@@ -23,7 +26,9 @@ const navItems = [
             href="/"
             class="flex flex-row gap-2 items-center hover:text-teal-500"
         >
-            <span class="fa fa-code text-4xl" aria-hidden="true"></span>
+            <span class="fill-current text-4xl w-10 hover:text-teal-500" aria-hidden="true">
+                <CodeIcon />
+            </span>
             <span class="hidden text-3xl sm:inline-block">Wenwei</span>
         </a>
     </h2>
@@ -32,11 +37,13 @@ const navItems = [
     <nav id="main-menu" class="main-menu">
         <a
             href="#main-menu-toggle"
-            class="close-menu-toggle sm:hidden"
+            class="close-menu-toggle w-6 sm:hidden"
             id="close-menu-toggle"
             aria-label="Close main menu"
         >
-            <span class="fa fa-close" aria-hidden="true"></span>
+            <span aria-hidden="true">
+                <XmarkIcon />
+            </span>
             <span class="sr-only">Close main menu</span>
         </a>
 
@@ -58,7 +65,9 @@ const navItems = [
         id="main-menu-toggle"
         aria-label="Open main menu"
     >
-        <span class="fa fa-bars" aria-hidden="true"></span>
+        <span aria-hidden="true">
+            <BarsIcon />
+        </span>
         <span class="sr-only">Open main menu</span>
     </a>
 
@@ -72,7 +81,7 @@ const navItems = [
     }
 
     .main-menu-toggle {
-        @apply inline-block text-3xl outline-none sm:hidden;
+        @apply w-6 inline-block text-3xl outline-none sm:hidden;
     }
 
     /** When the url ends with #main-menu  */
