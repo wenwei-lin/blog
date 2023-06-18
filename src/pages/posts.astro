@@ -1,20 +1,23 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/default.astro";
-import PostItem  from "../components/post-item.astro";
+import PostItem from "../components/post-item.astro";
 
 const blogPosts = await getCollection("posts");
+blogPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 ---
 
 <Layout title="文章">
     <main class="divide-y divide-gray-200">
-        <h1 class="font-bold text-3xl mb-8 sm:text-4xl md:text-5xl">所有文章</h1>
+        <h1 class="font-bold text-3xl mb-8 sm:text-4xl md:text-5xl">
+            所有文章
+        </h1>
         <!-- TODO: add page number for post -->
         <ul class="pt-4 flex flex-col flex-wrap gap-8">
             {
                 blogPosts.map((post) => (
                     <li>
-                        <PostItem post={post}/>
+                        <PostItem post={post} />
                     </li>
                 ))
             }
