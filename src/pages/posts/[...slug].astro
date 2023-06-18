@@ -4,7 +4,7 @@ import Layout from "../../layouts/post-layout.astro";
 import formatDate from "../../utils/formatDate";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("post");
+    const posts = await getCollection("posts");
 
     return posts.map((post) => {
         return {

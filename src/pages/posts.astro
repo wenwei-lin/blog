@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/default.astro";
 import PostItem  from "../components/post-item.astro";
 
-const blogPosts = await getCollection("post");
+const blogPosts = await getCollection("posts");
 ---
 
 <Layout title="文章">

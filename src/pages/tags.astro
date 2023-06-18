@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/default.astro";
+
+const posts = await getCollection("posts");
+const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())];
+---
+
+<Layout title="标签">
+    <main
+        class="divide-y divide-gray-200 md:flex md:divide-y-0 md:divide-x md:pt-20"
+    >
+        <h1 class="font-bold text-3xl mb-8 sm:text-4xl md:text-6xl md:pr-6">
+            标签
+        </h1>
+        <section>
+            <ul class="flex flex-wrap gap-4 pt-2 max-w-lg md:pl-6">
+                {
+                    uniqueTags.map((tag) => (
+                        <li class="flex items-center gap-2">
+                            <a
+                                href={`/tags/${tag}`}
+                                class="text-teal-500 font-medium"
+                            >
+                                {tag}
+                            </a>{" "}
+                            <span class="text-sm font-semibold">
+                                {`(${
+                                    posts.filter((post) =>
+                                        post.data.tags.includes(tag)
+                                    ).length
+                                })`}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+    </main>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/default.astro";
+import PostItem from "../../components/post-item.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+
+    const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())];
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = posts.filter((post) =>
+            post.data.tags.includes(tag)
+        );
+        return {
+            params: { tag },
+            props: {
+                posts: filteredPosts,
+            },
+        };
+    });
+}
+
+const tag = Astro.params.tag;
+const posts = Astro.props.posts;
+---
+<Layout>
+    <main class="divide-y divide-gray-200">
+        <h1 class="font-bold text-3xl mb-8 sm:text-4xl md:text-5xl">{tag}</h1>
+        <!-- TODO: add page number for post -->
+        <ul class="pt-4 flex flex-col flex-wrap gap-8">
+            {
+                posts.map((post) => (
+                    <li>
+                        <PostItem post={post}/>
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
+</Layout>
