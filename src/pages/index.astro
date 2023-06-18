@@ -4,7 +4,7 @@ import Layout from "../layouts/default.astro";
 import PostItem from "../components/post-item.astro";
 
 const posts = await getCollection("posts");
-posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 const MAX_POSTS = 5;
 ---
 

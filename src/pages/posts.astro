@@ -4,7 +4,7 @@ import Layout from "../layouts/default.astro";
 import PostItem from "../components/post-item.astro";
 
 const blogPosts = await getCollection("posts");
-blogPosts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+blogPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <Layout title="文章">

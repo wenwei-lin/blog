@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 const tag = Astro.params.tag;
 const posts = Astro.props.posts;
-posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 <Layout>
     <main class="divide-y divide-gray-200">
