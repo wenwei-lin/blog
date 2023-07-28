@@ -29,8 +29,12 @@ const { Content } = await post.render();
             <time datetime={post.data.date} class="text-gray-500 font-medium">{formatDate(post.data.date)}</time>
             <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl">{post.data.title}</h1>
         </section>
-        <section class="pt-8 prose prose-stone lg:prose-xl max-w-full">
+        <section class="pt-8 prose prose-stone prose-img:block prose-img:m-auto lg:prose-xl max-w-full">
             <Content />
         </section>
     </article>
 </Layout>
+
+<style>
+    
+</style>
