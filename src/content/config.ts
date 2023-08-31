@@ -21,7 +21,7 @@ export const collections = {
             roles: z.string().array(),
             start: z.string(),
             end: z.string(),
-            githubRepo: z.string(),
+            githubRepo: z.string().optional(),
             liveDemo: z.string().optional(),
             videoDemo: z.string().optional(),
         })
