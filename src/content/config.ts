@@ -23,6 +23,7 @@ export const collections = {
             end: z.string(),
             githubRepo: z.string(),
             liveDemo: z.string().optional(),
+            videoDemo: z.string().optional(),
         })
     })
 }

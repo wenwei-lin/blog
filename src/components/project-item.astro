@@ -7,7 +7,9 @@ const { project } = Astro.props;
 
 <section class="border-solid border border-gray-400 rounded-xl px-2 pb-2">
     <article class="max-w-md mx-auto ">
-        <Image src={project.data.cover} alt={"Cover image for " + project.data.title} />
+        <Image
+        class="mx-auto" 
+        src={project.data.cover} alt={"Cover image for " + project.data.title} />
         <section class="flex gap-2 items-center">
             <h3 class="text-2xl font-bold">{project.data.title}</h3>
 
@@ -56,6 +58,28 @@ const { project } = Astro.props;
                                 <span class="px-1">在线Demo</span>
                             </a>
                     </li>
+            )}
+
+            {project.data.liveDemo && (
+                    <li>
+                        <a 
+                            class="hover:cursor-pointer hover:bg-gray-400 bg-gray-200 rounded-lg"
+                            href={project.data.liveDemo}
+                            target="_blank">
+                                <span class="px-1">在线Demo</span>
+                            </a>
+                    </li>
+            )}
+
+            {project.data.videoDemo && (
+                <li>
+                    <a 
+                        class="hover:cursor-pointer hover:bg-gray-400 bg-gray-200 rounded-lg"
+                        href={project.data.liveDemo}
+                        target="_blank">
+                            <span class="px-1">视频Demo</span>
+                        </a>
+                </li>
             )}
         </ul>
     </article>

@@ -6,7 +6,8 @@ projectType: 黑客松
 productType: Web App
 technologies: 
     - Next.js
-    - Azure Static Web Apps
+    - LangChain
+    - Azure
 teamMembers:
     - Wenwei Lin
     - zR
