@@ -15,6 +15,6 @@ roles:
     - UX设计
 start: 2023-01
 end: 2023-04
-githubRepo: https://github.com/wenwei-lin/ReadingNoteApp
+githubRepo: https://github.com/orgs/MLSA-Social-Impact-Project-Jan-Mar-23/repositories
 videoDemo: https://www.youtube.com/shorts/aMLNw2D4nsM
 ---
