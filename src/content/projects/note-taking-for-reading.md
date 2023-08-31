@@ -12,7 +12,7 @@ teamMembers:
     - Wenwei Lin
 roles:
     - UI设计
-    - 前端开发
+    - 全栈开发
 start: 2023-06
 end: 2023-06
 githubRepo: https://github.com/wenwei-lin/ReadingNoteApp
