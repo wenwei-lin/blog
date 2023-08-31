@@ -5,7 +5,7 @@ import GitHubIcon from '../icons/github.astro'
 const { project } = Astro.props;
 ---
 
-<section class="border-solid border border-gray-400 rounded-xl px-2 pb-2">
+<section class="min-h-full border-solid border border-gray-400 rounded-xl px-2 pb-2">
     <article class="max-w-md mx-auto ">
         <Image
         class="mx-auto" 
@@ -34,6 +34,8 @@ const { project } = Astro.props;
             ))}
         </ul>
 
+        
+        
         <p class="mt-4 text-gray-900 text-lg">
             {project.data.description}
         </p>

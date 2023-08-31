@@ -1,6 +1,6 @@
 ---
 title: 记账表单
-description: .
+description: 一个简单的记账表单，可以将记账信息保存在Notion中。
 cover: "./expense-tracker-add-form.png"
 projectType: 个人项目
 productType: Web App

@@ -1,6 +1,6 @@
 ---
 title: 颐和养老
-description: .
+description: 基于Vue和SSM的养老院管理系统。
 cover: "./nursing-center.png"
 projectType: 课程设计
 productType: Web App
