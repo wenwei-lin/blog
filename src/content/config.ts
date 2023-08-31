@@ -8,5 +8,21 @@ export const collections = {
             description: z.string().max(200),
             tags: z.string().array(),
         })
+    }),
+    projects: defineCollection({
+        schema: z.object({
+            title: z.string(),
+            description: z.string().max(200),
+            cover: z.string(),
+            projectType: z.string(),
+            productType: z.string(),
+            technologies: z.string().array(),
+            teamMembers: z.string().array(),
+            roles: z.string().array(),
+            start: z.date(),
+            end: z.date(),
+            githubRepo: z.string(),
+            liveDemo: z.string().optional(),
+        })
     })
 }

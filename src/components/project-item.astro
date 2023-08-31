@@ -1,0 +1,41 @@
+---
+const { project } = Astro.props;
+---
+
+<section class="">
+    <img src={project.data.cover} alt={"Cover image for " + project.data.title} />
+    <h3>{project.data.title}</h3>
+
+    <!-- Project Type -->
+    <ul>
+        <li>{project.data.projectType}</li>
+        <li>{project.data.productType}</li>
+    </ul>
+
+    <!-- Technologies list -->
+    <ul>
+        {project.data.technologies.map((technology: string) => (
+            <li>{technology}</li>
+        ))}
+    </ul>
+
+    <!-- Role list -->
+    <ul>
+        {project.data.roles.map((role: string) => (
+            <li>{role}</li>
+        ))}
+    </ul>
+
+    <!-- URL list -->
+    <ul>
+       <li>
+            <a href={project.data.githubRepo}>GitHub Repo</a>
+       </li>
+       
+       {project.data.liveDemo && (
+            <li>
+                <a href={project.data.githubRepo}>Live Demo</a>
+            </li>
+       )}
+    </ul>
+</section>
