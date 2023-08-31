@@ -1,41 +1,62 @@
 ---
+import { Image } from "astro:assets";
+import GitHubIcon from '../icons/github.astro'
+
 const { project } = Astro.props;
 ---
 
-<section class="">
-    <img src={project.data.cover} alt={"Cover image for " + project.data.title} />
-    <h3>{project.data.title}</h3>
+<section class="border-solid border border-gray-400 rounded-xl px-2 pb-2">
+    <article class="max-w-md mx-auto ">
+        <Image src={project.data.cover} alt={"Cover image for " + project.data.title} />
+        <section class="flex gap-2 items-center">
+            <h3 class="text-2xl font-bold">{project.data.title}</h3>
 
-    <!-- Project Type -->
-    <ul>
-        <li>{project.data.projectType}</li>
-        <li>{project.data.productType}</li>
-    </ul>
+            <!-- Project Type -->
+            <ul class="flex flex-wrap gap-2 font-semibold">
+                <li class="bg-teal-300 px-1 rounded-lg">{project.data.projectType}</li>
+                <li class="bg-teal-300 px-1 rounded-lg">{project.data.productType}</li>
+            </ul>
+        </section>
 
-    <!-- Technologies list -->
-    <ul>
-        {project.data.technologies.map((technology: string) => (
-            <li>{technology}</li>
-        ))}
-    </ul>
+        <!-- Technologies list -->
+        <ul class="mt-2 flex flex-wrap gap-2">
+            {project.data.technologies.map((technology: string) => (
+                <li class="font-semibold bg-orange-400 px-1 rounded-lg">{technology}</li>
+            ))}
+        </ul>
 
-    <!-- Role list -->
-    <ul>
-        {project.data.roles.map((role: string) => (
-            <li>{role}</li>
-        ))}
-    </ul>
+        <!-- Role list -->
+        <ul class="mt-2 flex flex-wrap gap-2">
+            {project.data.roles.map((role: string) => (
+                <li class="font-semibold bg-lime-400 px-1 rounded-lg">{role}</li>
+            ))}
+        </ul>
 
-    <!-- URL list -->
-    <ul>
-       <li>
-            <a href={project.data.githubRepo}>GitHub Repo</a>
-       </li>
-       
-       {project.data.liveDemo && (
+        <p class="mt-4 text-gray-900 text-lg">
+            {project.data.description}
+        </p>
+
+        <!-- URL list -->
+        <ul class="mt-4 flex flex-wrap gap-2">
             <li>
-                <a href={project.data.githubRepo}>Live Demo</a>
+                    <a 
+                        class="hover:cursor-pointer hover:bg-gray-400 bg-gray-200 rounded-lg"
+                        href={project.data.githubRepo}
+                        target="_blank">
+                        <span class="px-1">GitHub 仓库</span>
+                    </a>
             </li>
-       )}
-    </ul>
+            
+            {project.data.liveDemo && (
+                    <li>
+                        <a 
+                            class="hover:cursor-pointer hover:bg-gray-400 bg-gray-200 rounded-lg"
+                            href={project.data.liveDemo}
+                            target="_blank">
+                                <span class="px-1">在线Demo</span>
+                            </a>
+                    </li>
+            )}
+        </ul>
+    </article>
 </section>

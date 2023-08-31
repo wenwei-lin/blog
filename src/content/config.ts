@@ -10,17 +10,17 @@ export const collections = {
         })
     }),
     projects: defineCollection({
-        schema: z.object({
+        schema: ({image}) => z.object({
             title: z.string(),
             description: z.string().max(200),
-            cover: z.string(),
+            cover: image(),
             projectType: z.string(),
             productType: z.string(),
             technologies: z.string().array(),
             teamMembers: z.string().array(),
             roles: z.string().array(),
-            start: z.date(),
-            end: z.date(),
+            start: z.string(),
+            end: z.string(),
             githubRepo: z.string(),
             liveDemo: z.string().optional(),
         })

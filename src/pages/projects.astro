@@ -1,5 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/default.astro';
+import ProjectItem from '../components/project-item.astro';
+
+
+const projects = await getCollection("projects");
+projects.sort((a, b) => new Date(b.data.start).getTime() - new Date(a.data.start).getTime());
 ---
 
 <Layout title="项目">
@@ -8,8 +14,12 @@ import Layout from '../layouts/default.astro';
             项目展示
         </h1>
         <!-- TODO: add page number for post -->
-        <ul class="pt-4 flex flex-col flex-wrap gap-8">
-            
+        <ul class="pt-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-10">
+            {
+                projects.map((project) => (
+                    <li><ProjectItem project={project} /></li>
+                ))
+            }
         </ul>
     </main>
 </Layout>
