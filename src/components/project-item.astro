@@ -60,16 +60,6 @@ const { project } = Astro.props;
                     </li>
             )}
 
-            {project.data.liveDemo && (
-                    <li>
-                        <a 
-                            class="hover:cursor-pointer hover:bg-gray-400 bg-gray-200 rounded-lg"
-                            href={project.data.liveDemo}
-                            target="_blank">
-                                <span class="px-1">在线Demo</span>
-                            </a>
-                    </li>
-            )}
 
             {project.data.videoDemo && (
                 <li>
