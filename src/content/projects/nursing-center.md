@@ -6,7 +6,7 @@ projectType: 课程设计
 productType: Web App
 technologies: 
     - Vue
-    - Java
+    - Element UI
     - Spring MVC
     - MyBatis
 teamMembers:

@@ -6,6 +6,7 @@ projectType: 个人项目
 productType: Web App
 technologies: 
     - Next.js
+    - Material UI
     - Notion API
     - Azure
 teamMembers:
