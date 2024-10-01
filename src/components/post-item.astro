@@ -1,5 +1,5 @@
 ---
-import formatDate from "../utils/formatDate";
+import { formatDate } from "@/utils/string";
 
 const { post, displayReadingMore } = Astro.props;
 ---
@@ -8,7 +8,7 @@ const { post, displayReadingMore } = Astro.props;
     <dl>
         <dt class="sr-only">Published on</dt>
         <dd class="text-gray-500 font-medium tracking-wider text-lg">
-            <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+            <time datetime={post.data.date}>{formatDate(post.data.createdAt)}</time>
         </dd>
     </dl>
     <article class="mt-2 xl:mt-0">

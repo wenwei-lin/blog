@@ -1,7 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/post-layout.astro";
-import formatDate from "../../utils/formatDate";
+import dayjs from "dayjs";
+import { formatDate } from "@/utils/string";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -26,7 +27,7 @@ const { Content } = await post.render();
 <Layout title={post.data.title}>
     <article class="divide-y">
         <section class="mb-8 flex flex-col flex-wrap items-center justify-center gap-2">
-            <time datetime={post.data.date} class="text-gray-500 font-medium">{formatDate(post.data.date)}</time>
+            <time datetime={dayjs(post.data.createdAt).format("YYYY-MM-DD")} class="text-gray-500 font-medium">{formatDate(post.data.createdAt)}</time>
             <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl">{post.data.title}</h1>
         </section>
         <section class="pt-8 prose max-w-xs block m-auto prose-stone prose-img:block prose-img:m-auto md:max-w-none lg:prose-xl ">
