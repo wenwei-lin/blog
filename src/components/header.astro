@@ -1,112 +1,110 @@
 ---
-import CodeIcon from '../icons/code.astro'
-import BarsIcon from '../icons/bars.astro'
-import XmarkIcon from '../icons/xmark.astro'
+import CodeIcon from '../icons/code.astro';
+import BarsIcon from '../icons/bars.astro';
+import XmarkIcon from '../icons/xmark.astro';
 const navItems = [
-    {
-        title: "文章",
-        slug: "/posts",
-    },
-    {
-        title: "标签",
-        slug: "/tags",
-    },
-    {
-        title: "项目",
-        slug: "/projects",
-    },
-    {
-        title: "关于",
-        slug: "/about",
-    },
+  {
+    title: 'Article',
+    slug: '/posts',
+  },
+  {
+    title: 'Project',
+    slug: '/projects',
+  },
+  {
+    title: 'About',
+    slug: '/about',
+  },
 ];
 ---
+
 <!-- CSS only hamburger menu -->
-
 <header class="py-10 flex flex-row flex-wrap items-center justify-between">
-    <!-- logo and title -->
-    <h2>
-        <a
-            href="/"
-            class="flex flex-row gap-3 items-center hover:text-teal-500"
-        >
-            <span class="fill-current text-4xl w-10 hover:text-teal-500" aria-hidden="true">
-                <CodeIcon />
-            </span>
-            <span class="inline-block text-3xl sm:inline-block">Wenwei</span>
-        </a>
-    </h2>
+  <!-- logo and title -->
+  <h2>
+    <a href="/" class="flex flex-row gap-3 items-center hover:text-teal-500">
+      <span
+        class="fill-current text-4xl w-10 hover:text-teal-500"
+        aria-hidden="true"
+      >
+        <CodeIcon />
+      </span>
+      <span class="inline-block text-3xl sm:inline-block">Wenwei</span>
+    </a>
+  </h2>
 
-    <!-- nav link -->
-    <nav id="main-menu" class="main-menu">
-        <a
-            href="#main-menu-toggle"
-            class="close-menu-toggle w-6 sm:hidden"
-            id="close-menu-toggle"
-            aria-label="Close main menu"
-        >
-            <span aria-hidden="true">
-                <XmarkIcon />
-            </span>
-            <span class="sr-only">Close main menu</span>
-        </a>
-
-        <ul class="sm:flex sm:flex-row sm:flex-wrap sm:gap-8">
-            {
-                navItems.map((navItem) => (
-                    <li>
-                        <a href={navItem.slug} class="sm:text-lg sm:hover:text-teal-500">{navItem.title}</a>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
-
-    <!-- hamburger menu button -->
+  <!-- nav link -->
+  <nav id="main-menu" class="main-menu">
     <a
-        href="#main-menu"
-        class="main-menu-toggle"
-        id="main-menu-toggle"
-        aria-label="Open main menu"
+      href="#main-menu-toggle"
+      class="close-menu-toggle w-6 sm:hidden"
+      id="close-menu-toggle"
+      aria-label="Close main menu"
     >
-        <span aria-hidden="true">
-            <BarsIcon />
-        </span>
-        <span class="sr-only">Open main menu</span>
+      <span aria-hidden="true">
+        <XmarkIcon />
+      </span>
+      <span class="sr-only">Close main menu</span>
     </a>
 
-    <!-- backdrop -->
-    <span class="backdrop" tabindex="-1" aria-hidden="true" hidden></span>
+    <ul class="sm:flex sm:flex-row sm:flex-wrap sm:gap-8">
+      {
+        navItems.map((navItem) => (
+          <li>
+            <a href={navItem.slug} class="sm:text-lg sm:hover:text-teal-500">
+              {navItem.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <!-- hamburger menu button -->
+  <a
+    href="#main-menu"
+    class="main-menu-toggle"
+    id="main-menu-toggle"
+    aria-label="Open main menu"
+  >
+    <span aria-hidden="true">
+      <BarsIcon />
+    </span>
+    <span class="sr-only">Open main menu</span>
+  </a>
+
+  <!-- backdrop -->
+  <span class="backdrop" tabindex="-1" aria-hidden="true" hidden></span>
 </header>
 
 <style>
-    .main-menu {
-        @apply hidden sm:block;
-    }
+  .main-menu {
+    @apply hidden sm:block;
+  }
 
-    .main-menu-toggle {
-        @apply w-6 inline-block text-3xl outline-none sm:hidden;
-    }
+  .main-menu-toggle {
+    @apply w-6 inline-block text-3xl outline-none sm:hidden;
+  }
 
-    /** When the url ends with #main-menu  */
-    .main-menu:target {
-        @apply block absolute top-10 z-40 outline-none;
-        width: calc(100% - 3rem);
-    }
+  /** When the url ends with #main-menu  */
+  .main-menu:target {
+    @apply block absolute top-10 z-40 outline-none;
+    width: calc(100% - 3rem);
+  }
 
-    .main-menu:target a.close-menu-toggle {
-        @apply block absolute top-0 -right-4 text-4xl;
-    }
+  .main-menu:target a.close-menu-toggle {
+    @apply block absolute top-0 -right-4 text-4xl;
+  }
 
-    .main-menu:target ul {
-        @apply pt-20 pl-8 flex flex-col gap-8;
-    }
+  .main-menu:target ul {
+    @apply pt-20 pl-8 flex flex-col gap-8;
+  }
 
-    .main-menu:target ul a {
-        @apply font-bold text-2xl text-black;
-    }
+  .main-menu:target ul a {
+    @apply font-bold text-2xl text-black;
+  }
 
-    .main-menu:target ~ .backdrop {
-        @apply z-30 block bg-gray-400 opacity-90 fixed top-0 left-0 w-full h-full;
-    }
+  .main-menu:target ~ .backdrop {
+    @apply z-30 block bg-gray-400 opacity-90 fixed top-0 left-0 w-full h-full;
+  }
 </style>

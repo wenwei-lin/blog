@@ -4,15 +4,15 @@ slug: git-101
 createdAt: 2023-07-28
 description: Git是一个分布式版本控制系统，本文介绍Git的基本用法。
 tags:
-    - Git
-    - GitHub
-    - 开发工具
-    - 开源
+  - Git
+  - GitHub
+  - 开发工具
+  - 开源
 ---
 
-Git是由Linux之父Linus Torvalds在2005年开发的一个**分布式版本控制系统**，用于管理Linux内核的开发。如今，各大公司都在使用Git进行版本控制，如Google、Facebook、微软、阿里巴巴、腾讯等。作为学生或个人开发者，使用Git进行版本控制也能极大提高开发效率。
+Git 是由 Linux 之父 Linus Torvalds 在 2005 年开发的一个**分布式版本控制系统**，用于管理 Linux 内核的开发。如今，各大公司都在使用 Git 进行版本控制，如 Google、Facebook、微软、阿里巴巴、腾讯等。作为学生或个人开发者，使用 Git 进行版本控制也能极大提高开发效率。
 
-![linux 与 Git](@/assets/linux-git.jpg)
+![linux 与 Git](./linux-git.jpg)
 
 ## 一、版本控制系统
 
@@ -27,48 +27,48 @@ Git是由Linux之父Linus Torvalds在2005年开发的一个**分布式版本控�
 
 ### 集中式版本控制系统
 
-集中式版本控制系统是指将所有文件存储在**一台集中管理的服务器**上，用户通过客户端连接到服务器来获取文件，然后在本地进行修改，最后将修改后的文件提交到服务器。集中式版本控制系统的代表是SVN。
+集中式版本控制系统是指将所有文件存储在**一台集中管理的服务器**上，用户通过客户端连接到服务器来获取文件，然后在本地进行修改，最后将修改后的文件提交到服务器。集中式版本控制系统的代表是 SVN。
 
-![集中式版本控制系统](@/assets/cvcs.png)
+![集中式版本控制系统](./cvcs.png)
 
 集中式版本控制系统的优点是：集中管理，易于管理。缺点是：服务器单点故障，如果服务器出现故障，所有人都无法提交文件。
 
 ### 分布式版本控制系统
 
-分布式版本控制系统是指将所有文件存储在**多台计算机**上，每台计算机都包含完整的文件版本库，用户可以从任意一台计算机获取文件。分布式版本控制系统的代表是Git。
+分布式版本控制系统是指将所有文件存储在**多台计算机**上，每台计算机都包含完整的文件版本库，用户可以从任意一台计算机获取文件。分布式版本控制系统的代表是 Git。
 
-![分布式版本控制系统](@/assets/dvcs.png)
+![分布式版本控制系统](./dvcs.png)
 
 分布式版本控制系统的优点是：分布式，不存在单点故障。缺点是：相比集中式版本控制系统，分布式版本控制系统的学习成本更高。
 
 ## 二、Git 介绍
 
-Git是一个免费的、开源的、分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。它是目前世界上最先进的分布式版本控制系统，可以高效、快速地处理从小到大的项目版本管理。
+Git 是一个免费的、开源的、分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。它是目前世界上最先进的分布式版本控制系统，可以高效、快速地处理从小到大的项目版本管理。
 
-### Git与GitHub的关系
+### Git 与 GitHub 的关系
 
-Git是一个分布式版本控制系统，而**GitHub是一个代码托管平台**，可以将本地的Git仓库托管到GitHub上，实现代码的备份和共享。GitHub是目前世界上最大的代码托管平台，拥有超过4000万的开发者用户。
+Git 是一个分布式版本控制系统，而**GitHub 是一个代码托管平台**，可以将本地的 Git 仓库托管到 GitHub 上，实现代码的备份和共享。GitHub 是目前世界上最大的代码托管平台，拥有超过 4000 万的开发者用户。
 
-![Git & GitHub](@/assets/git-github.jpg)
+![Git & GitHub](./git-github.jpg)
 
-## 三、Git基本概念
+## 三、Git 基本概念
 
-我想用照相机的比喻来解释Git中的四个基本概念：
+我想用照相机的比喻来解释 Git 中的四个基本概念：
 
 - 仓库（Repository）
 - 提交（Commit）
 - 分支（Branch）
 - 合并（Merge）
 
-### Git是一台照相机
+### Git 是一台照相机
 
-![图片：Git是一台照相机](@/assets/git-camera.jpg)
+![图片：Git是一台照相机](./git-camera.jpg)
 
 可以把 Git 想象成一台**照相机**，它专门为我们的项目拍照，记录项目的成长史：
 
 - 仓库就像是照相机中的**胶卷**，它记录了项目的所有历史版本。
 - 提交（动作）就像是照相机中的**快门**，它记录项目在某个时间点的状态，并保存成一张张**照片**。
-- 分支是一个**素材集**，收集了同一个主题的照片，比如：分支A收集了所有的人像照片，分支B收集了所有的风景照片。
+- 分支是一个**素材集**，收集了同一个主题的照片，比如：分支 A 收集了所有的人像照片，分支 B 收集了所有的风景照片。
 - 通过素材集的组合合并，我们可以制作出精致的照片，这就是**合并**。
 
 ### 仓库（Repository）
@@ -81,21 +81,21 @@ Git是一个分布式版本控制系统，而**GitHub是一个代码托管平台
 
 ### 提交（Commit）
 
-提交是Git中最重要的概念，它记录了项目在某个时间点的状态。每次提交都会生成一个唯一的提交ID，用于标识这次提交。提交ID是一个40位的十六进制字符串，如：`a4a7dce85cf63874e984719f4fdd239f5145052f`。
+提交是 Git 中最重要的概念，它记录了项目在某个时间点的状态。每次提交都会生成一个唯一的提交 ID，用于标识这次提交。提交 ID 是一个 40 位的十六进制字符串，如：`a4a7dce85cf63874e984719f4fdd239f5145052f`。
 
-![commits-history](@/assets/commits-history.png)
+![commits-history](./commits-history.png)
 
 我们可以随时回溯到某次提交，查看项目在这个时间点的状态。如果我们在某次提交后发现了错误，可以回退到上一次提交，或者回退到任意一次提交。
 
-如果你看过动漫《时光代理人》，你就会发现：Git让我们拥有穿越到照片（某一个commit）的能力，修改过去。
+如果你看过动漫《时光代理人》，你就会发现：Git 让我们拥有穿越到照片（某一个 commit）的能力，修改过去。
 
 ### 分支（Branch）
 
-分支是Git中最有趣的概念，它可以让我们在同一个仓库中同时进行多个任务，而不会相互影响。
+分支是 Git 中最有趣的概念，它可以让我们在同一个仓库中同时进行多个任务，而不会相互影响。
 
-![branches](@/assets/branches.png)
+![branches](./branches.png)
 
-在Git中，主分支（通常是main或master）和特性分支是常用的分支类型，它们在项目开发中扮演着不同的角色。
+在 Git 中，主分支（通常是 main 或 master）和特性分支是常用的分支类型，它们在项目开发中扮演着不同的角色。
 
 #### 主分支
 
@@ -105,33 +105,33 @@ Git是一个分布式版本控制系统，而**GitHub是一个代码托管平台
 
 特性分支用于**开发新功能**，它通常是从主分支中创建的，开发完成后再合并到主分支中。特性分支的代码不一定是稳定的，它可能包含开发到一半的代码。
 
-每一个特性分支只完成一个功能或主题的开发，比如：登录功能、注册功能，或者修复某一个bug。特性分支的命名应该简洁明了，比如：`login`、`register`、`fix-bug-001`。
+每一个特性分支只完成一个功能或主题的开发，比如：登录功能、注册功能，或者修复某一个 bug。特性分支的命名应该简洁明了，比如：`login`、`register`、`fix-bug-001`。
 
 ### 合并（Merge）
 
-合并是将两个分支的修改合并到一起，它是Git中最复杂的概念。合并分为两种情况：快进式合并和非快进式合并。
+合并是将两个分支的修改合并到一起，它是 Git 中最复杂的概念。合并分为两种情况：快进式合并和非快进式合并。
 
-![合并分支](@/assets/git-merge.jpg)
+![合并分支](./git-merge.jpg)
 
 #### 非快进式合并（图左）
 
-非快进式合并是指：将一个分支的修改合并到另一个分支时，另一个分支有新的提交。这种情况下，Git会创建一个新的提交，包含两个分支的修改，这个过程叫做非快进式合并。
+非快进式合并是指：将一个分支的修改合并到另一个分支时，另一个分支有新的提交。这种情况下，Git 会创建一个新的提交，包含两个分支的修改，这个过程叫做非快进式合并。
 
 #### 快进式合并（图右）
 
-快进式合并是指：将一个分支的修改合并到另一个分支时，另一个分支没有新的提交。这种情况下，Git会直接将另一个分支的指针指向当前分支的最新提交，这个过程叫做快进式合并。
+快进式合并是指：将一个分支的修改合并到另一个分支时，另一个分支没有新的提交。这种情况下，Git 会直接将另一个分支的指针指向当前分支的最新提交，这个过程叫做快进式合并。
 
-## 四、快速上手Git
+## 四、快速上手 Git
 
-最后，用一个简单的网页开发项目来演示Git的基本操作。
+最后，用一个简单的网页开发项目来演示 Git 的基本操作。
 
-### 1. 安装Git
+### 1. 安装 Git
 
-Git支持Windows、Linux、Mac等操作系统，你可以在[Git官网](https://git-scm.com/)下载安装包进行安装。
+Git 支持 Windows、Linux、Mac 等操作系统，你可以在[Git 官网](https://git-scm.com/)下载安装包进行安装。
 
-### 2. 配置Git
+### 2. 配置 Git
 
-安装完成后，我们需要配置Git的用户名和邮箱，这样Git才能知道是谁在使用Git。
+安装完成后，我们需要配置 Git 的用户名和邮箱，这样 Git 才能知道是谁在使用 Git。
 
 ```bash
 # 配置用户名
@@ -176,19 +176,19 @@ touch index.html
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Git 101</title>
-</head>
-<body>
-  <h1>Hello Git!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Git 101</title>
+  </head>
+  <body>
+    <h1>Hello Git!</h1>
+  </body>
 </html>
 ```
 
 ### 5. 查看文件状态
 
-我们可以使用`git status`命令查看文件状态。在Git中，文件有三种状态：已修改（Modified）、已暂存（Staged）、已提交（Committed）。
+我们可以使用`git status`命令查看文件状态。在 Git 中，文件有三种状态：已修改（Modified）、已暂存（Staged）、已提交（Committed）。
 
 - 已修改：文件已经被修改，但还没有添加到暂存区。
 - 已暂存：文件已经添加到暂存区，但还没有提交到仓库。
@@ -199,13 +199,13 @@ touch index.html
 git status
 ```
 
-![git-status](@/assets/git-status.png)
+![git-status](./git-status.png)
 
 ### 6. 添加文件
 
-在Git中，我们需要先将文件添加到暂存区，然后再提交到仓库。
+在 Git 中，我们需要先将文件添加到暂存区，然后再提交到仓库。
 
-> 暂存区（Stage）是Git中的一个概念，它是一个缓冲区，用于存放待提交的文件。
+> 暂存区（Stage）是 Git 中的一个概念，它是一个缓冲区，用于存放待提交的文件。
 
 ```bash
 # 将index.html文件添加到暂存区
@@ -221,7 +221,7 @@ git add .
 
 此时，我们再次查看文件状态，可以看到`index.html`文件已经添加到暂存区。
 
-![git-status-add](@/assets/git-status-add.png)
+![git-status-add](./git-status-add.png)
 
 ### 7. 提交文件
 
@@ -243,7 +243,7 @@ git commit -m "Add index.html"
 git log
 ```
 
-![git-log](@/assets/git-log.png)
+![git-log](./git-log.png)
 
 你也可以使用`git log --oneline`命令查看简洁的提交历史。
 
@@ -252,11 +252,11 @@ git log
 git log --oneline
 ```
 
-![git-log-oneline](@/assets/git-log-oneline.png)
+![git-log-oneline](./git-log-oneline.png)
 
 ### 9. 创建及切换分支
 
-在Git中，我们可以创建多个分支，用于同时进行多个任务。在本例中，我们创建一个名为`style-index`的分支，用于开发网页的样式。
+在 Git 中，我们可以创建多个分支，用于同时进行多个任务。在本例中，我们创建一个名为`style-index`的分支，用于开发网页的样式。
 
 ```bash
 # 创建一个名为style-index的分支
@@ -284,21 +284,21 @@ git checkout -b style-index
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Git 101</title>
-  <style>
-    body {
-      background-color: #f5f5f5;
-    }
-    h1 {
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <h1>Hello Git!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Git 101</title>
+    <style>
+      body {
+        background-color: #f5f5f5;
+      }
+      h1 {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello Git!</h1>
+  </body>
 </html>
 ```
 
@@ -320,7 +320,7 @@ git commit -am "Add style to index.html"
 git checkout main
 ```
 
-注：你的主分支可能是`main`或`master`，取决于你的Git版本。
+注：你的主分支可能是`main`或`master`，取决于你的 Git 版本。
 
 ### 12. 查看分支
 
@@ -331,7 +331,7 @@ git checkout main
 git branch
 ```
 
-![git-branch](@/assets/git-branch.png)
+![git-branch](./git-branch.png)
 
 在分支前面有一个星号`*`，表示当前分支。
 
@@ -344,7 +344,7 @@ git branch
 git merge style-index
 ```
 
-如果主分支和`style-index`分支都有新的提交，那么Git会创建一个新的提交，包含两个分支的修改，这个过程叫做非快进式合并。
+如果主分支和`style-index`分支都有新的提交，那么 Git 会创建一个新的提交，包含两个分支的修改，这个过程叫做非快进式合并。
 
 ### 14. 查看提交历史
 
@@ -355,7 +355,7 @@ git merge style-index
 git log --oneline
 ```
 
-![git-log-oneline-merge](@/assets/git-log-oneline-merge.png)
+![git-log-oneline-merge](./git-log-oneline-merge.png)
 
 ### 15. 删除分支
 
@@ -375,16 +375,16 @@ git branch -d style-index
 git branch
 ```
 
-![git-branch-merged](@/assets/git-branch-merged.png)
+![git-branch-merged](./git-branch-merged.png)
 
 在分支前面没有星号`*`，表示当前分支已经被删除。
 
-很棒，我们已经完成了一个简单的网页开发项目，你已经掌握了Git的基本操作。
+很棒，我们已经完成了一个简单的网页开发项目，你已经掌握了 Git 的基本操作。
 
 ## 五、了解更多
 
-Git是一个非常强大的工具，它可以帮助我们高效地管理项目。如果你想了解更多关于Git的知识，可以阅读以下资料：
+Git 是一个非常强大的工具，它可以帮助我们高效地管理项目。如果你想了解更多关于 Git 的知识，可以阅读以下资料：
 
 - [有关版本控制与 Git 结合使用的简介 - Microsoft Learn](https://learn.microsoft.com/zh-cn/training/paths/intro-to-vc-git/?WT.mc_id=studentamb_157723)
 - [控制源代码管理 - Microsoft Learn](https://learn.microsoft.com/zh-cn/training/paths/az-400-manage-source-control/?WT.mc_id=studentamb_157723)
-- [Git官方文档](https://git-scm.com/book/zh/v2)
+- [Git 官方文档](https://git-scm.com/book/zh/v2)
