@@ -1,28 +1,28 @@
 ---
-import Header from "../components/header.astro";
-import Footer from "../components/footer.astro";
-import PageContainer from "../components/page-container.astro";
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+import PageContainer from '../components/page-container.astro';
+import '@/styles/global.css';
 
 const { title } = Astro.props;
 ---
 
 <html lang="en">
-    <!-- TODO: Enhance SEO -->
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title}</title>
-    </head>
-    <body>
-        <PageContainer>
-            <section class="flex flex-col flex-wrap min-h-screen justify-between">
-                <Header />
-                <main class="mb-auto">
-                    <slot />
-                </main>
-                <Footer />
-            </section>
-        </PageContainer>
-    </body>
+  <!-- TODO: Enhance SEO -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <PageContainer>
+      <section class="flex flex-col flex-wrap min-h-screen justify-between">
+        <Header />
+        <main class="mb-auto">
+          <slot />
+        </main>
+        <Footer />
+      </section>
+    </PageContainer>
+  </body>
 </html>
-
