@@ -1,0 +1,35 @@
+---
+import BlogPostPreview from '@/components/modules/blog/post-preview';
+import Spotlight from '@/components/common/spotlight';
+import TextGenerateEffect from '@/components/common/text-generate-effect';
+import { getCollection } from 'astro:content';
+import RootLayout from '@/layouts/root.astro';
+
+const posts = await getCollection('post');
+posts.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
+const featuredPosts = posts.filter((post) => post.data.featured);
+
+console.log(featuredPosts);
+---
+
+<RootLayout>
+  <div class="min-h-screen bg-black text-white">
+    {/* Hero Section with Spotlight Effect */}
+    <div class="relative pt-32 py-20 flex flex-col items-center justify-center">
+      <Spotlight
+        client:load
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+
+      {/* Main Content */}
+      <div class="relative z-10 max-w-4xl px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-5xl font-bold mb-4">
+            <TextGenerateEffect client:load words="Updating ..." />
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</RootLayout>

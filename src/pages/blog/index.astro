@@ -1,0 +1,62 @@
+---
+import BlogPostPreview from '@/components/modules/blog/post-preview';
+import Spotlight from '@/components/common/spotlight';
+import TextGenerateEffect from '@/components/common/text-generate-effect';
+import { getCollection } from 'astro:content';
+import RootLayout from '@/layouts/root.astro';
+
+const posts = await getCollection('post');
+posts.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
+const featuredPosts = posts.filter((post) => post.data.featured);
+
+console.log(featuredPosts);
+---
+
+<RootLayout>
+  <div class="min-h-screen bg-black text-white">
+    {/* Hero Section with Spotlight Effect */}
+    <div class="relative pt-32 py-20 flex flex-col items-center justify-center">
+      <Spotlight
+        client:load
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+
+      {/* Main Content */}
+      <div class="relative z-10 max-w-4xl px-4">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-5xl font-bold mb-4">
+            <TextGenerateEffect client:load words="Wenwei's Blog" />
+          </h1>
+          <p class="text-xl text-zinc-400">
+            Thoughts on tech, product, and continuous learning
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Featured Post */}
+    {
+      featuredPosts.length > 0 && (
+        <div class="max-w-4xl mx-auto px-4 mb-16">
+          <BlogPostPreview
+            slug={featuredPosts[0].id}
+            post={featuredPosts[0].data}
+          />
+        </div>
+      )
+    }
+
+    {/* Blog Posts List */}
+    <div class="max-w-4xl mx-auto px-4 pb-20">
+      <h2 class="text-2xl font-bold mb-8">Latest Posts</h2>
+      <div class="space-y-8">
+        {
+          posts.map((post) => (
+            <BlogPostPreview slug={post.id} post={post.data} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</RootLayout>

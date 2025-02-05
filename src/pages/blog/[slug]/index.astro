@@ -1,0 +1,86 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import Spotlight from '@/components/common/spotlight';
+import TextGenerateEffect from '@/components/common/text-generate-effect';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import RootLayout from '@/layouts/root.astro';
+import dayjs from 'dayjs';
+import Avatar from '@/assets/avatar.jpeg';
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('post');
+  return posts.map((post) => ({ params: { slug: post.id } }));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+const entry = await getEntry('post', slug);
+const { title, tags = [], createdAt, readingTime } = entry!.data;
+const { Content } = await render(entry!);
+---
+
+<RootLayout>
+  <div class="min-h-screen bg-black text-white">
+    {/* Hero Section with Spotlight Effect */}
+    <div class="relative py-20 flex flex-col items-center justify-center">
+      <Spotlight
+        client:load
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+
+      {/* Main Content */}
+      <div class="relative z-10 max-w-4xl px-4">
+        <div class="text-center mb-4">
+          <a
+            href="/blog"
+            class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Blog
+          </a>
+          <h1 class="text-3xl md:text-5xl font-bold mb-4">
+            <TextGenerateEffect client:load words={title} />
+          </h1>
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            {tags.map((tag) => <Badge variant="tag">{tag}</Badge>)}
+          </div>
+          <div class="flex items-center justify-center text-zinc-400 space-x-4">
+            <span class="flex items-center">
+              <Calendar className="w-4 h-4 mr-2" />
+              {dayjs(createdAt).format('MMMM D, YYYY')}
+            </span>
+            <span class="flex items-center">
+              <Clock className="w-4 h-4 mr-2" />
+              {readingTime}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Blog Content */}
+    <article class="max-w-4xl mx-auto px-4 pb-20">
+      {
+        (
+          <div class="prose prose-invert max-w-none">
+            <Content />
+          </div>
+        )
+      }
+    </article>
+
+    {/* Call to Action */}
+    <div class="max-w-4xl mx-auto px-4 pb-20 text-center">
+      <h2 class="text-2xl font-bold mb-4">Enjoyed this article?</h2>
+      <p class="text-zinc-400 mb-6">
+        Subscribe to my newsletter for more insights on frontend development and
+        tech trends.
+      </p>
+      <Button asChild>
+        <a href="/subscribe">Subscribe Now</a>
+      </Button>
+    </div>
+  </div>
+</RootLayout>

@@ -4,9 +4,10 @@ export type Post = {
   title: string;
   description: string;
   tags: string[];
-  slug: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt?: Date;
+  featured?: boolean;
+  readingTime?: string;
 };
 
 export const PostSchema = z.object({
@@ -15,4 +16,6 @@ export const PostSchema = z.object({
   updatedAt: z.date().optional(),
   description: z.string().max(200),
   tags: z.string().array(),
+  featured: z.boolean().optional(),
+  readingTime: z.string().optional(),
 });

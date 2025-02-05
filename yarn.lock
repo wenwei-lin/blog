@@ -620,6 +620,38 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@radix-ui/react-compose-refs@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-1.1.1.tgz#6f766faa975f8738269ebb8a23bad4f5a8d2faec"
+  integrity sha512-Y9VzoRDSJtgFMUCoiZBDVo084VQ5hfpXxVE+NgkdNsjiDBByiImMZKKhxMwCbdHvhlENG6a833CbFkOQvTricw==
+
+"@radix-ui/react-context@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-context/-/react-context-1.1.1.tgz#82074aa83a472353bb22e86f11bcbd1c61c4c71a"
+  integrity sha512-UASk9zi+crv9WteK/NU4PLvOoL3OuE6BWVKNF6hPRBtYBDXQ2u5iu3O59zUlJiTVvkyuycnqrztsHVJwcK9K+Q==
+
+"@radix-ui/react-primitive@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-2.0.1.tgz#6d9efc550f7520135366f333d1e820cf225fad9e"
+  integrity sha512-sHCWTtxwNn3L3fH8qAfnF3WbUZycW93SM1j3NFDzXBiz8D6F5UTTy8G1+WFEaiCdvCVRJWj6N2R4Xq6HdiHmDg==
+  dependencies:
+    "@radix-ui/react-slot" "1.1.1"
+
+"@radix-ui/react-progress@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-progress/-/react-progress-1.1.1.tgz#af923714ba3723be9c510536749d6c530d8670e4"
+  integrity sha512-6diOawA84f/eMxFHcWut0aE1C2kyE9dOyCTQOMRR2C/qPiXz/X0SaiA/RLbapQaXUCmy0/hLMf9meSccD1N0pA==
+  dependencies:
+    "@radix-ui/react-context" "1.1.1"
+    "@radix-ui/react-primitive" "2.0.1"
+
+"@radix-ui/react-slot@1.1.1", "@radix-ui/react-slot@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.1.1.tgz#ab9a0ffae4027db7dc2af503c223c978706affc3"
+  integrity sha512-RApLLOcINYJA+dMVbOju7MYv1Mb2EBp2nH4HdDzXTSyaR5optlm6Otrz1euW3HbdOR8UmmFK06TD+A9frYWv+g==
+  dependencies:
+    "@radix-ui/react-compose-refs" "1.1.1"
+
 "@rollup/pluginutils@^5.1.4":
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.1.4.tgz#bb94f1f9eaaac944da237767cdfee6c5b2262d4a"
@@ -1672,6 +1704,15 @@ fraction.js@^4.3.7:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
+
+framer-motion@^12.3.0:
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.3.0.tgz#1ab223e3b06480b1e6d6b291892e245cb4693e04"
+  integrity sha512-pIL/fAMlj8J1Px+owKYfxtq1bpz9EOFt/GanUIwsWme2dS6w7WGviAaadhJxfhdpKa/DxR8pWZxDrgC6ujR26w==
+  dependencies:
+    motion-dom "^12.0.0"
+    motion-utils "^12.0.0"
+    tslib "^2.4.0"
 
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"
@@ -2792,6 +2833,18 @@ minimatch@^9.0.4:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.2.tgz#93a9626ce5e5e66bd4db86849e7515e92340a707"
   integrity sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==
+
+motion-dom@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.0.0.tgz#7045c63642eecbcc04c40b4457ebb07b3c2b3d0c"
+  integrity sha512-CvYd15OeIR6kHgMdonCc1ihsaUG4MYh/wrkz8gZ3hBX/uamyZCXN9S9qJoYF03GqfTt7thTV/dxnHYX4+55vDg==
+  dependencies:
+    motion-utils "^12.0.0"
+
+motion-utils@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.0.0.tgz#fabf79f4f1c818720a1b70f615e2a1768f396ac0"
+  integrity sha512-MNFiBKbbqnmvOjkPyOKgHUp3Q6oiokLkI1bEwm5QA28cxMZrv0CbbBGDNmhF6DIXsi1pCQBSs0dX8xjeER1tmA==
 
 mrmime@^2.0.0:
   version "2.0.0"
