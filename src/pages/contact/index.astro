@@ -4,12 +4,6 @@ import Spotlight from '@/components/common/spotlight';
 import TextGenerateEffect from '@/components/common/text-generate-effect';
 import { getCollection } from 'astro:content';
 import RootLayout from '@/layouts/root.astro';
-
-const posts = await getCollection('post');
-posts.sort((a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime());
-const featuredPosts = posts.filter((post) => post.data.featured);
-
-console.log(featuredPosts);
 ---
 
 <RootLayout>

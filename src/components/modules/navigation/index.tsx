@@ -8,7 +8,7 @@ const navItems: NavItem[] = [
   { name: "Home", href: "/", icon: Home },
   { name: "Blog", href: "/blog", icon: Briefcase },
   { name: "Projects", href: "/projects", icon: Briefcase },
-  { name: "Books", href: "/books", icon: BookOpen },
+  { name: "Bookshelf", href: "/bookshelf", icon: BookOpen },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 

@@ -1,11 +1,17 @@
 ---
 import Spotlight from '@/components/common/spotlight';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import Layout from '../layouts/root.astro';
 import TextGenerateEffect from '@/components/common/text-generate-effect';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Avatar from '@/assets/avatar.jpeg';
+import { ScrollArrow } from '@/components/modules/home/scroll-arrow';
+import { getCollection } from 'astro:content';
+import WorkExperienceItem from '@/components/modules/home/work-experience-item';
+
+const workExperiences = await getCollection('workExperience');
+workExperiences.sort((a, b) => b.data.start.getTime() - a.data.start.getTime());
 ---
 
 <Layout>
@@ -88,6 +94,25 @@ import Avatar from '@/assets/avatar.jpeg';
           </div>
         </div>
       </div>
+
+      <ScrollArrow client:load />
     </div>
+    <section class="py-20 px-4 bg-zinc-900">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+          Work Experience
+        </h2>
+        <div class="flex flex-col gap-8">
+          {
+            workExperiences.map((workExperience) => (
+              <WorkExperienceItem
+                client:load
+                workExperience={workExperience.data}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>
