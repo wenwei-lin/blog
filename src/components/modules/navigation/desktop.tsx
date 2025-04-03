@@ -32,7 +32,6 @@ export default function DesktopNavigation({
   return (
     <header className="fixed top-4 left-0 right-0 z-50 hidden lg:flex justify-center">
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="px-1.5 py-1.5 rounded-full border border-zinc-800/50"

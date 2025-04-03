@@ -17,6 +17,7 @@ export const ProjectSchema = ({ image }) =>
     liveDemo: z.string().optional(),
     videoDemo: z.string().optional(),
     context: z.string().optional(),
+    featured: z.boolean().optional(),
   });
 
 export type Project = InferEntrySchema<'project'>;

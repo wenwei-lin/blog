@@ -1,10 +1,12 @@
 ---
-import BlogPostPreview from '@/components/modules/blog/post-preview';
+import ProjectPreview from '@/components/modules/projects/project-preview';
 import Spotlight from '@/components/common/spotlight';
 import TextGenerateEffect from '@/components/common/text-generate-effect';
 import { getCollection } from 'astro:content';
 import RootLayout from '@/layouts/root.astro';
 
+const projects = await getCollection('project');
+const featuredProjects = projects.filter((project) => project.data.featured);
 ---
 
 <RootLayout>
@@ -21,9 +23,41 @@ import RootLayout from '@/layouts/root.astro';
       <div class="relative z-10 max-w-4xl px-4">
         <div class="text-center mb-12">
           <h1 class="text-3xl md:text-5xl font-bold mb-4">
-            <TextGenerateEffect client:load words="Updating ..." />
+            <TextGenerateEffect client:load words="My Projects" />
           </h1>
+          <p class="text-xl text-zinc-400">
+            Showcasing my journey in tech through innovative solutions
+          </p>
         </div>
+      </div>
+    </div>
+
+    {/* Featured Project */}
+    {
+      featuredProjects.length > 0 && (
+        <div class="max-w-4xl mx-auto px-4 mb-16">
+          <div class="mb-4">
+            <span class="px-3 py-1 text-sm font-semibold bg-blue-500 text-white rounded-full">
+              Featured
+            </span>
+          </div>
+          <ProjectPreview
+            slug={featuredProjects[0].id}
+            project={featuredProjects[0].data}
+          />
+        </div>
+      )
+    }
+
+    {/* All Projects */}
+    <div class="max-w-4xl mx-auto px-4 pb-20">
+      <h2 class="text-2xl font-bold mb-8">All Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          projects.map((project) => (
+            <ProjectPreview slug={project.id} project={project.data} />
+          ))
+        }
       </div>
     </div>
   </div>

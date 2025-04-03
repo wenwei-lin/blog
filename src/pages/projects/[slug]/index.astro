@@ -1,0 +1,155 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import Spotlight from '@/components/common/spotlight';
+import TextGenerateEffect from '@/components/common/text-generate-effect';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, Calendar, Github, Globe } from 'lucide-react';
+import RootLayout from '@/layouts/root.astro';
+import { Image } from 'astro:assets';
+
+export const getStaticPaths = (async () => {
+  const projects = await getCollection('project');
+  return projects.map((project) => ({ params: { slug: project.id } }));
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+const entry = await getEntry('project', slug);
+const {
+  title,
+  description,
+  technologies = [],
+  teamMembers = [],
+  roles = [],
+  context,
+  cover,
+  start,
+  end,
+  githubRepo,
+  liveDemo,
+  videoDemo,
+  productType,
+  projectType,
+} = entry!.data;
+const { Content } = await render(entry!);
+
+console.log(cover);
+---
+
+<RootLayout>
+  <div class="min-h-screen bg-black text-white">
+    {/* Hero Section with Spotlight Effect */}
+    <div class="relative py-20 flex flex-col items-center justify-center">
+      <Spotlight
+        client:load
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+
+      {/* Main Content */}
+      <div class="relative z-10 max-w-4xl px-4">
+        <div class="text-center mb-4">
+          <a
+            href="/projects"
+            class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Projects
+          </a>
+          <h1 class="text-3xl md:text-5xl font-bold mb-4">
+            <TextGenerateEffect client:load words={title} />
+          </h1>
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <Badge variant="outline">{productType}</Badge>
+            <Badge variant="outline">{projectType}</Badge>
+            {technologies.map((tech) => <Badge variant="tag">{tech}</Badge>)}
+          </div>
+          <p class="text-zinc-400 max-w-3xl mx-auto mb-6">{description}</p>
+          {context && <p class="text-zinc-300 mb-4">Context: {context}</p>}
+          <div class="flex gap-4 justify-center mb-6">
+            {
+              githubRepo && (
+                <Button variant="outline" asChild>
+                  <a
+                    href={githubRepo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center"
+                  >
+                    <Github className="w-4 h-4 mr-2" />
+                    GitHub
+                  </a>
+                </Button>
+              )
+            }
+            {
+              liveDemo && (
+                <Button variant="outline" asChild>
+                  <a
+                    href={liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center"
+                  >
+                    <Globe className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </a>
+                </Button>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Project Cover Image */}
+    <div class="max-w-4xl mx-auto px-4 mb-12">
+      <div class="rounded-lg overflow-hidden shadow-lg border border-zinc-800">
+        <Image
+          src={cover}
+          alt={title}
+          class="w-full h-auto object-cover"
+          width={1200}
+          height={675}
+        />
+      </div>
+    </div>
+
+    {/* Project Details */}
+    <div class="max-w-4xl mx-auto px-4 pb-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        {/* Time Period */}
+        <div class="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
+          <h3 class="text-lg font-semibold mb-2">Timeline</h3>
+          <p class="text-zinc-400">
+            {start} - {end === 'Present' ? 'Present' : end}
+          </p>
+        </div>
+
+        {/* Team */}
+        <div class="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
+          <h3 class="text-lg font-semibold mb-2">Team</h3>
+          <ul class="list-disc list-inside text-zinc-400">
+            {teamMembers.map((member) => <li>{member}</li>)}
+          </ul>
+        </div>
+
+        {/* Roles */}
+        <div class="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
+          <h3 class="text-lg font-semibold mb-2">My Role</h3>
+          <ul class="list-disc list-inside text-zinc-400">
+            {roles.map((role) => <li>{role}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      {/* Project Content */}
+      <article>
+        <div class="prose prose-invert max-w-none">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </div>
+</RootLayout>

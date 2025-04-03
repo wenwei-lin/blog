@@ -5,6 +5,7 @@ description: 阅读书籍时我们可能不理解书本中的概念，又或者�
 cover: './reading-copilot.png'
 projectType: 黑客松
 productType: Web App
+featured: true
 technologies:
   - Next.js
   - FAISS
